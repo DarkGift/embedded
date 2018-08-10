@@ -6,8 +6,7 @@
     "license": "BSD-3-Clause",
     "support": {
         "issues": "https://github.com/DarkGift/embedded/issues",
-        "forum": "http://www.DarkGift.com/forum/",
-        "wiki": "https://github.com/yii2tech/embedded/wiki",
+        "wiki": "https://github.com/DarkGift/embedded/wiki",
         "source": "https://github.com/DarkGift/embedded"
     },
     "authors": [
