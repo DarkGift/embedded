@@ -48,6 +48,10 @@ class Mapping extends BaseObject
      * While enabled this saves memory usage, but also makes it impossible to use embedded and raw value at the same time.
      */
     public $unsetSource = true;
+    /**
+     * @var string field name that is used as key, on empty will be used autoincrement.
+     */
+    public $fieldAsKey = '';
 
     /**
      * @var mixed actual embedded value.
@@ -132,6 +136,12 @@ class Mapping extends BaseObject
                 if (!is_array($frame)) {
                     throw new InvalidParamException("Source value for the embedded should be an array.");
                 }
+                if ($this->fieldAsKey) {
+                    if (!isset($frame[$this->fieldAsKey])) {
+                        throw new InvalidParamException("Field for key embedded document should be id document.");
+                    }
+                    $key = (string)$frame[$this->fieldAsKey];
+                }
                 $result[$key] = Yii::createObject(array_merge($targetConfig, $frame));
             }
         } else {
@@ -161,8 +171,9 @@ class Mapping extends BaseObject
         } else {
             if ($this->multiple) {
                 $value = [];
-                foreach ($embeddedValue as $key => $object) {
-                    $value[$key] = $this->extractObjectValues($object);
+                $autoIncrementKey = 0;
+                foreach ($embeddedValue as $object) {
+                    $value[$autoIncrementKey++] = $this->extractObjectValues($object);
                 }
             } else {
                 $value = $this->extractObjectValues($embeddedValue);
