@@ -138,7 +138,7 @@ class Mapping extends BaseObject
                 }
                 if ($this->fieldAsKey) {
                     if (!isset($frame[$this->fieldAsKey])) {
-                        throw new InvalidParamException("Field for key embedded document should be id document.");
+                        throw new InvalidParamException("Field for key embedded document should be not empty.");
                     }
                     $key = (string)$frame[$this->fieldAsKey];
                 }
