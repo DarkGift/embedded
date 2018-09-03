@@ -1,7 +1,7 @@
 {
     "name": "yii2tech/embedded",
     "description": "Provides support for embedded (nested) models in Yii2",
-    "keywords": ["yii2", "embed", "embedded", "nested", "mongo", "mongodb", "elastic", "elasticsearch"],
+    "keywords": ["yii2", "embed", "embedded", "nested", "mongo", "mongodb", "elastic", "elasticsearch", "json"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.13"
+        "yiisoft/yii2": "~2.0.14"
     },
     "repositories": [
         {
@@ -26,7 +26,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "yii2tech\\embedded\\": "" }
+        "psr-4": {"yii2tech\\embedded\\": "src"}
     },
     "extra": {
         "branch-alias": {
