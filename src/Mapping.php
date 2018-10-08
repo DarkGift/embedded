@@ -175,7 +175,7 @@ class Mapping extends BaseObject
         } else {
             if ($this->multiple) {
                 $value = [];
-                foreach ($embeddedValue as $object) {
+                foreach ($embeddedValue as $key => $object) {
                     $value[$key] = $this->extractObjectValues($object);
                 }
             } else {
